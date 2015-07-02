@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009"
+		 xmlns:s="library://ns.adobe.com/flex/spark"
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:components="yourdomain.modules.variousLists.views.components.*"
+		 width="400"
+		 height="300"
+		 creationComplete="group1_creationCompleteHandler(event)">
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+
+			import spark.events.IndexChangeEvent;
+
+			protected function group1_creationCompleteHandler(event:FlexEvent):void
+			{
+				shapesList.addEventListener(IndexChangeEvent.CHANGE, onShapessSelected);
+				colorsList.addEventListener(IndexChangeEvent.CHANGE, onColorsSelected);
+			}
+
+			protected function onShapessSelected(event:IndexChangeEvent):void
+			{
+				logger.text += event.currentTarget.selectedItem.label + "\r\n";
+			}
+
+			protected function onColorsSelected(event:IndexChangeEvent):void
+			{
+				logger.text += event.currentTarget.selectedItem.label + "\r\n";
+			}
+		]]>
+	</fx:Script>
+
+	<s:Label x="8"
+			 y="52"
+			 text="Shapess"/>
+	<components:ShapesListView x="8"
+							   y="72"
+							   id="shapesList"/>
+	<s:Label x="8"
+			 y="117"
+			 text="Colors"/>
+	<components:ColorsListView x="8"
+							   y="137"
+							   id="colorsList"/>
+	<s:TextArea id="logger"
+				x="167"
+				y="52"
+				height="106"/>
+	<components:UsersListView x="10"
+							  y="199"/>
+	<s:Label x="10"
+			 y="179"
+			 text="Users"/>
+</s:Group>

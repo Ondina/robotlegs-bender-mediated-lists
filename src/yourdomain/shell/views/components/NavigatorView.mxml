@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009"
+		 xmlns:s="library://ns.adobe.com/flex/spark"
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 width="400"
+		 height="300"
+		 xmlns:components="yourdomain.modules.someModule.views.components.*"
+		 xmlns:components1="yourdomain.modules.anotherModule.views.components.*">
+	<s:ButtonBar id="buttonBar"
+				 x="0"
+				 dataProvider="{viewStack}"
+				 selectedIndex="0"
+				 width="100%">
+		<s:layout>
+			<s:HorizontalLayout gap="-1"/>
+		</s:layout>
+	</s:ButtonBar>
+
+	<mx:ViewStack id="viewStack">
+		<s:NavigatorContent label="First"
+							name="First">
+			<components:SomeView/>
+		</s:NavigatorContent>
+		<s:NavigatorContent label="Second"
+							name="Second">
+			<components1:AnotherView/>
+		</s:NavigatorContent>
+	</mx:ViewStack>
+</s:Group>

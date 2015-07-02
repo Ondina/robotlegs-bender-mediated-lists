@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:DropDownList xmlns:fx="http://ns.adobe.com/mxml/2009"
+				xmlns:s="library://ns.adobe.com/flex/spark"
+				xmlns:mx="library://ns.adobe.com/flex/mx"
+				implements="yourdomain.modules.variousLists.views.components.api.IListView"
+				dataProvider="{listDataProvider}"
+				labelField="label">
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			private var _listDataProvider:ArrayCollection;
+			private var _listId:String;
+
+			public function get listId():String
+			{
+				return _listId;
+			}
+
+			public function set listId(value:String):void
+			{
+				_listId = value;
+			}
+
+
+			public function get listDataProvider():ArrayCollection
+			{
+				return _listDataProvider;
+			}
+
+			[Bindable]
+			public function set listDataProvider(value:ArrayCollection):void
+			{
+				_listDataProvider = value;
+			}
+		]]>
+	</fx:Script>
+</s:DropDownList>

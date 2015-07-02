@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009"
+		 xmlns:s="library://ns.adobe.com/flex/spark"
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 width="344"
+		 height="42">
+	<fx:Script>
+		<![CDATA[
+			import yourdomain.modules.userModule.controllers.events.UserEvent;
+			import yourdomain.modules.userModule.models.vos.UserVO;
+
+			protected function addUserButton_clickHandler(event:MouseEvent):void
+			{
+				var vo:UserVO = new UserVO(userName.text);
+				dispatchEvent(new UserEvent(UserEvent.ADD_USER_REQUESTED, "users", vo));
+			}
+		]]>
+	</fx:Script>
+	<s:Button id="addUserButton"
+			  x="267"
+			  y="10"
+			  label="add"
+			  click="addUserButton_clickHandler(event)"/>
+	<s:Label x="10"
+			 y="15"
+			 text="user name"/>
+	<s:TextInput id="userName"
+				 x="106"
+				 y="10"/>
+</s:Group>
